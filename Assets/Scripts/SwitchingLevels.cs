@@ -14,27 +14,28 @@ public class SwitchingLevels : MonoBehaviour
     public bool _upgradable = false;
 
     //Testing
-    private void LateUpdate()
-    {
-        if (_upgradable == true)
-        {
-            _upgradable = false;
-            Upgrade();
-        };
-    }
+
     //
     private void Start()
     {
         current_level = 0;
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Chess")
+        {
+            SwitchingLevels otherLvl = other.GetComponent<SwitchingLevels>();
+            if(otherLvl.current_level == current_level)
+            {
+                otherLvl.Upgrade();
+            }
+        }
+    }
     public void Upgrade()
     {
         // Check if we're safe to upgrade (We haven't reached the last level)
         if (current_level < levels.Length - 1) //minus 1 do lvl 0 là Pawn
         {
-            // Increase current level
-           
             // Switch to the updated level
             SwitchObject(current_level);
         }
@@ -47,6 +48,7 @@ public class SwitchingLevels : MonoBehaviour
         levels[lvl + 1].transform.position = levels[lvl].transform.position;
         levels[lvl].SetActive(false);
         levels[lvl+1].SetActive(true);
+        //Increase level
         current_level++;
 
     }
