@@ -11,7 +11,7 @@ public class SwitchingLevels : MonoBehaviour
     public GameObject[] levels;
     // Counting current level
     public int current_level = 0;
-    public bool _upgradable = false;
+    
 
     //Testing
 
@@ -20,17 +20,8 @@ public class SwitchingLevels : MonoBehaviour
     {
         current_level = 0;
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Chess")
-        {
-            SwitchingLevels otherLvl = other.GetComponent<SwitchingLevels>();
-            if(otherLvl.current_level == current_level)
-            {
-                otherLvl.Upgrade();
-            }
-        }
-    }
+
+    
     public void Upgrade()
     {
         // Check if we're safe to upgrade (We haven't reached the last level)
