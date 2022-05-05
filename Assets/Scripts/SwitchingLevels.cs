@@ -10,18 +10,23 @@ public class SwitchingLevels : MonoBehaviour
     // Storing different levels'
     public GameObject[] levels;
     // Counting current level
-    int current_level = 0;
+    public int current_level = 0;
+    public bool _upgradable = false;
+
+    //Testing
+    private void LateUpdate()
+    {
+        if (_upgradable == true)
+        {
+            _upgradable = false;
+            Upgrade();
+        };
+    }
+    //
+
     private void Start()
     {
-        grapInput = new GrapInput();
-        grapInput.Mouse.Enable();
-        grapInput.Mouse.LeftClick.started += OnLeftClick;
-    }
-
-    private void OnLeftClick(InputAction.CallbackContext obj)
-    {
-        current_level += 1;
-        SwitchObject(current_level);
+        current_level = 0;
     }
 
     public void Upgrade()
