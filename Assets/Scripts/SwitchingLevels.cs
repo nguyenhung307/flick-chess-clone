@@ -1,14 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SwitchingLevels : MonoBehaviour
 {
-
+    private GrapInput grapInput;
     // Storing different levels'
     public GameObject[] levels;
     // Counting current level
     int current_level = 0;
+    private void Start()
+    {
+        grapInput = new GrapInput();
+        grapInput.Mouse.Enable();
+        grapInput.Mouse.LeftClick.started += OnLeftClick;
+    }
+
+    private void OnLeftClick(InputAction.CallbackContext obj)
+    {
+        current_level += 1;
+        SwitchObject(current_level);
+    }
 
     public void Upgrade()
     {

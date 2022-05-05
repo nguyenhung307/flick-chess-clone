@@ -26,6 +26,7 @@ public class Grapping : MonoBehaviour
     private void OnLeftClickRelease(InputAction.CallbackContext context)
     {
         _selecting = false;
+        _selected = null;
     }
 
     private void OnLeftClick(InputAction.CallbackContext context)
