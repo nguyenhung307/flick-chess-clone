@@ -6,7 +6,7 @@ using UnityEngine;
 public class UnlockableSystem : MonoBehaviour
 {
     public int _level = 0;
-    public int _indexUnlockLevel = 0;
+    private int _indexUnlockLevel = 0;
     //enum ArenaType { Square,Box,Circle};
     [SerializeField] List<Transform> _arenasLocked;
     [SerializeField] List<string> _tagArenasInUsed;
@@ -19,21 +19,26 @@ public class UnlockableSystem : MonoBehaviour
     {
         UnlockMap(_level);
     }
+    public void UnlockAllBasedOnLevel(int level)
+    {
+        for (int i = 0;i<level; i++)
+        {
+            UnlockMap(level);
+        }
+    }
     public void UnlockMap(int level)
     {
-        if (level > _levelNeedToUnlockArenas[_indexUnlockLevel])
+        if (_indexUnlockLevel < _levelNeedToUnlockArenas.Count)
         {
+            if (level == _levelNeedToUnlockArenas[_indexUnlockLevel])
+             {
            
-            if (_indexUnlockLevel < _levelNeedToUnlockArenas.Count-1)
-            {
-               
                 UpdateUnlockedMaps(_indexUnlockLevel);
                 _indexUnlockLevel += 1;
             }
-               
         }
     }
-    public void UpdateUnlockedMaps(int levelIndex)
+    private void UpdateUnlockedMaps(int levelIndex)
     {
         bool changeArena = false;
         int changeArenaIndex = -1;
@@ -43,6 +48,7 @@ public class UnlockableSystem : MonoBehaviour
             Debug.Log(arena.tag);
             if (arena.tag == _tagArenasInUsed[i])
             {
+                // change using arena of the same tag
                 changeArena = true;
                 changeArenaIndex = i;
             }
@@ -53,7 +59,7 @@ public class UnlockableSystem : MonoBehaviour
         }
         else
         {
-            
+            // add arena with its tag if not changing arena of the same tag
             _arenasInUsed.Add(arena);
             _tagArenasInUsed.Add(arena.tag);
         }

@@ -338,7 +338,7 @@ MonoBehaviour:
   - Square
   _arenasInUsed:
   - {fileID: 8805344257386674743, guid: a820821275b4e0b4ea64118d0929cc0d, type: 3}
-  _levelNeedToUnlockArenas: 00000000010000000200000003000000
+  _levelNeedToUnlockArenas: 010000000200000003000000
   _newModel: []
   _levelNeedToUnlockNewModel: 
   Model: []
