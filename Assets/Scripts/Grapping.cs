@@ -26,9 +26,37 @@ public class Grapping : MonoBehaviour
     private void OnLeftClickRelease(InputAction.CallbackContext context)
     {
         _selecting = false;
-        _selected = null;
+        UpgradCollideCheck();
+        //_selected = null;
     }
+    private void UpgradCollideCheck()
+    {
+        
+        RaycastHit hit;
+        Collider[] hitColliders = Physics.OverlapSphere(_selected.transform.position, 40);
+       
+        float distance = 9000;
+        int c = -1 ;
+        
+        for (int i =0; i< hitColliders.Length; i++)
+        {
+            if (hitColliders[i].tag == "Chess" && hitColliders[i].name != _selected.name)
+            {
+                float newDistance = (_selected.transform.position - hitColliders[i].transform.position).magnitude;
+                if(newDistance< distance)
+                {
+                        distance = newDistance;
+                        c = i;
 
+                }
+            }
+        }   
+        if(c >=0 )
+        {
+            hitColliders[c].GetComponent<SwitchingLevels>().CombineChess(_selected);
+        }
+       
+    }
     private void OnLeftClick(InputAction.CallbackContext context)
     {
         Vector2 pos = grapInput.Mouse.Position.ReadValue<Vector2>();

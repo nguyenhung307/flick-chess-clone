@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4031513903022312408}
   - component: {fileID: 4093156051542015587}
   - component: {fileID: 4105805098580047009}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Queen
   m_TagString: Chess
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 5691033089251909273}
   - component: {fileID: 7098528056767863880}
   - component: {fileID: 1171537728922641438}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pawn
   m_TagString: Chess
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 1446252906654298380}
   - component: {fileID: 7077698362533197037}
   - component: {fileID: 4454200928963507665}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Knight
   m_TagString: Chess
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 379495576060317210}
   - component: {fileID: 1995961676575394701}
   - component: {fileID: 8725997564786041130}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: King
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 7352436999835291881}
   - component: {fileID: 340852646289302120}
   - component: {fileID: 6494486500267009447}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 3608671809495854172}
   - component: {fileID: 5279251870728798883}
   - component: {fileID: 6983370369193940992}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bishop
   m_TagString: Chess
   m_Icon: {fileID: 0}
@@ -572,8 +572,8 @@ GameObject:
   - component: {fileID: 2915460561330866304}
   - component: {fileID: -6581274403364503887}
   - component: {fileID: 2080113269492380876}
-  - component: {fileID: 2098979262026329529}
-  m_Layer: 0
+  - component: {fileID: 5839810217490824484}
+  m_Layer: 3
   m_Name: Chess
   m_TagString: Chess
   m_Icon: {fileID: 0}
@@ -635,7 +635,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &2098979262026329529
+--- !u!65 &5839810217490824484
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
