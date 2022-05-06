@@ -31,8 +31,6 @@ public class Grapping : MonoBehaviour
     }
     private void UpgradCollideCheck()
     {
-        
-        RaycastHit hit;
         Collider[] hitColliders = Physics.OverlapSphere(_selected.transform.position, 40);
        
         float distance = 9000;

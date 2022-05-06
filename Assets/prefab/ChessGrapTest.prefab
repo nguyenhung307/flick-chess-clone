@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 2080113269492380876}
   - component: {fileID: 5839810217490824484}
   m_Layer: 3
-  m_Name: Chess
+  m_Name: ChessGrapTest
   m_TagString: Chess
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
