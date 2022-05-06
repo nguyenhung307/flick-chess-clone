@@ -21,10 +21,16 @@ public class UnlockableSystem : MonoBehaviour
     }
     public void UnlockMap(int level)
     {
-        if (level == _levelNeedToUnlockArenas[_indexUnlockLevel])
+        if (level > _levelNeedToUnlockArenas[_indexUnlockLevel])
         {
-            UpdateUnlockedMaps(_indexUnlockLevel);
-            _indexUnlockLevel += 1;
+           
+            if (_indexUnlockLevel < _levelNeedToUnlockArenas.Count-1)
+            {
+               
+                UpdateUnlockedMaps(_indexUnlockLevel);
+                _indexUnlockLevel += 1;
+            }
+               
         }
     }
     public void UpdateUnlockedMaps(int levelIndex)
