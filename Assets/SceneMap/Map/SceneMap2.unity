@@ -387,6 +387,7 @@ MonoBehaviour:
   Map1: {fileID: 0}
   Map2: {fileID: 0}
   Map3: {fileID: 0}
+  MapBonus: {fileID: 0}
 --- !u!224 &103169365
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5743,7 +5744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1614308467
 Transform:
   m_ObjectHideFlags: 0
