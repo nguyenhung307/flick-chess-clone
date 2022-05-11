@@ -4,13 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Map
-  - Enemy
+  - Chess
+  - Grid
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Chess
   - Water
   - UI
   - 
