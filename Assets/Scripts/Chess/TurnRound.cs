@@ -14,27 +14,31 @@ public class TurnRound : MonoBehaviour
         }
         set
         {
-            this._isPlayerTurn = value;
+            _isPlayerTurn = value;
+            Debug.Log($"Is {(_isPlayerTurn ? "Player" : "Enemy")} Turn");
         }
     }
+    private Coroutine _waitForChangeToPlayer;
+
     private void Awake()
     {
-        _isPlayerTurn = false;
-        // StartCoroutine(CheckTurnPlayer());
-    }
-    private void Update() {
-        if(!_isPlayerTurn){
-        StartCoroutine(CheckTurnPlayer());
-        }
+        IsPlayerTurn = true;
     }
     IEnumerator CheckTurnPlayer()
     {   
             yield return new WaitForSeconds(5f);
-            _isPlayerTurn = true;
+            IsPlayerTurn = true;
     }
-    public void SetIsPlay(bool isPlay){
-        
-        _isPlayerTurn = isPlay;
-        Debug.Log("set Isplay " + _isPlayerTurn);
+    public void ChangeTeam(bool isPlayerTurn)
+    {   
+        IsPlayerTurn = isPlayerTurn;
+        if(!_isPlayerTurn)
+        {
+            if(_waitForChangeToPlayer != null)
+            {
+                StopCoroutine(_waitForChangeToPlayer);
+            }
+            _waitForChangeToPlayer = StartCoroutine(CheckTurnPlayer());
+        }
     }
 }

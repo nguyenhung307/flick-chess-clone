@@ -56,7 +56,8 @@ public class GameManager : MonoBehaviour
         if (_turnRound.IsPlayerTurn)
         {
             _rb.AddForce(new Vector3(force.x, 0, force.y) * _forceMultiplier);
-            _turnRound.SetIsPlay(false); 
+            // _turnRound.SetIsPlay(false); 
+            _turnRound.ChangeTeam(false);
         }
     }
     public void ChangeUp(bool isKing)

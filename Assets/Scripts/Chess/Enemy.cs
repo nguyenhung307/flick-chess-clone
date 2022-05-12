@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        if (gameObject.transform.position.y < -3f && gameObject.CompareTag("Enemy"))
+        if (gameObject.transform.position.y < 2f && gameObject.CompareTag("Enemy"))
         {
             Die();
         }
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
-        GameManager.Instance.ChangeUp(GameManager.Instance.RaycastCheck.Check().transform.name == "King");
+        GameManager.Instance.ChangeUp(GameManager.Instance.RaycastCheck.Check().transform.name == "King"); // Sửa
         GameManager.Instance.ListEnemy.Remove(gameObject);
         if (gameObject.name == "King")
         {
