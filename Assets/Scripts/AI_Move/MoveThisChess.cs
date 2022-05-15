@@ -11,10 +11,7 @@ public class MoveThisChess : MonoBehaviour
 
     // public float lerpSpeed, lerpSpeed2;
     // public float moveValue;
-    public FloorMove floor;
-    public FloorMove floor2;
-    public bool moveTarget = false;
-    public bool moveTarget2 = false;
+   
 
     public GameObject floorLane, floorLane2;
     public bool floorLaneActive, floorLane2Active;

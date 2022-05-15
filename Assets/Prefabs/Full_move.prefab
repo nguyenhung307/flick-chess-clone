@@ -352,29 +352,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe0493ad54d2b04c9696831d122b711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChessFull: {fileID: 0}
-  ChessKing: {fileID: 0}
-  ChessLane1: {fileID: 0}
-  ChessLane2: {fileID: 0}
-  ChessLane3: {fileID: 0}
-  ChessLane4: {fileID: 0}
-  ChessLane5: {fileID: 0}
-  ChessLane6: {fileID: 0}
-  ChessLane7: {fileID: 0}
-  ChessLane8: {fileID: 0}
-  ChessLane9: {fileID: 0}
+  ChessFull: {fileID: 4423369853527844075}
+  ChessKing: {fileID: 4423369854246766406}
+  ChessLane1: {fileID: 4423369854123272168}
+  ChessLane2: {fileID: 4423369855104464013}
+  ChessLane3: {fileID: 4423369854513071936}
+  ChessLane4: {fileID: 4423369853981545542}
+  ChessLane5: {fileID: 4423369854832861049}
+  ChessLane6: {fileID: 4423369854237107872}
+  ChessLane7: {fileID: 4423369854337525801}
+  ChessLane8: {fileID: 4423369853848683383}
+  ChessLane9: {fileID: 4423369853260927734}
   destinationRound1: {fileID: 4423369853540312457}
   destinationRound2: {fileID: 4423369854130168873}
-  destination: {fileID: 0}
-  destination1: {fileID: 0}
-  destination2: {fileID: 0}
-  destination3: {fileID: 0}
-  destination4: {fileID: 0}
-  destination5: {fileID: 0}
-  destination6: {fileID: 0}
-  destination7: {fileID: 0}
-  destination8: {fileID: 0}
-  destination9: {fileID: 0}
+  destination: {fileID: 4423369854750577784}
+  destination1: {fileID: 4423369853191048271}
+  destination2: {fileID: 4423369854947736875}
+  destination3: {fileID: 4423369853705592773}
+  destination4: {fileID: 4423369853496216410}
+  destination5: {fileID: 4423369854213646891}
+  destination6: {fileID: 4423369853680148997}
+  destination7: {fileID: 4423369854500536996}
+  destination8: {fileID: 4423369854507757835}
+  destination9: {fileID: 4423369854672447252}
   floor: {fileID: 0}
   floor2: {fileID: 0}
   moveTarget: 0
