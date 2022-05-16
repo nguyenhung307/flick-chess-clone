@@ -5,15 +5,19 @@ using UnityEngine;
 public class Floor : MonoBehaviour
 {
     public GameObject Barrier;
-    public bool ControlBarrier ;
+    public bool ControlBarrier;
 
     void Start()
     {
         ControlBarrier = false;
         Barrier.SetActive(false);
-        Update();
+        
     }
-    private void Update() 
+    private void Update()
+    {
+        ControllerBarrier();
+    }
+    void ControllerBarrier()
     {
         if (ControlBarrier == true)
         {
@@ -25,6 +29,7 @@ public class Floor : MonoBehaviour
         }
     }
     
+
 
 
 }
