@@ -6,6 +6,7 @@ public class Floor : MonoBehaviour
 {
     public GameObject Barrier;
     public bool ControlBarrier;
+    public MoveThisChessFix roundGame1,roundGame2;
 
     void Start()
     {
@@ -17,8 +18,10 @@ public class Floor : MonoBehaviour
     {
         ControllerBarrier();
     }
+    
     void ControllerBarrier()
     {
+        StartCoroutine(CountdownToStart1());
         if (ControlBarrier == true)
         {
             Barrier.SetActive(true);
@@ -28,8 +31,13 @@ public class Floor : MonoBehaviour
             Barrier.SetActive(false);
         }
     }
-    
-
-
-
+    IEnumerator CountdownToStart1()
+    {
+        yield return new WaitForSeconds(6f);
+        roundGame1.Round1Play = true;
+    }IEnumerator CountdownToStart2()
+    {
+        yield return new WaitForSeconds(6f);
+        roundGame2.Round2Play = true;
+    }
 }

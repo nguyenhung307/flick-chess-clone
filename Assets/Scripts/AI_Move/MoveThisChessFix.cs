@@ -14,6 +14,8 @@ public class MoveThisChessFix : MonoBehaviour
 
     public GameObject CamPlay1, CamPlay2;
 
+    public bool Round1Play, Round2Play;
+
 
     public GameObject floorLane, floorLane2;
     public bool floorLaneActive, floorLane2Active;
@@ -27,15 +29,17 @@ public class MoveThisChessFix : MonoBehaviour
         floorLane2Active = false;
         CamPlay1.SetActive(false);
         CamPlay2.SetActive(false);
+        Round1Play = false;
+        Round2Play = false;
 
     }
-
+    
 
     public void moveChess()
     {
         // moveTarget = true;
         floorLane.SetActive(true);
-
+        Round1Play = true;
         // _chess.DOMove(destinationRound1, 5f);
         for (int i = 0; i < _chess.Count; i++)
         {
@@ -61,6 +65,8 @@ public class MoveThisChessFix : MonoBehaviour
     {
         floorLane2.SetActive(true);
         CamPlay1.SetActive(false);
+        Round1Play = false;
+        Round2Play = true;
 
         for (int k = 0; k < _chess.Count; k++)
         {
