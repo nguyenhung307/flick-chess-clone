@@ -10,9 +10,18 @@ public class CamMovement : MonoBehaviour
     [SerializeField] private float distanceToTarget = 10;
 
     private Vector3 previousPosition;
+    public TurnRound TurnRoundPlayer;
 
     void Update()
     {
+        Controller();
+    }
+    public void Controller()
+    {
+        // if (TurnRoundPlayer.IsPlayerTurn == true)
+        // {
+        //     CameraMove();
+        // }
         CameraMove();
     }
     public void CameraMove()
