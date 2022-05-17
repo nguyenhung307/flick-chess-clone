@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Ground
   - End
+  - Barries
+  - EndBarries
   layers:
   - Default
   - TransparentFX
