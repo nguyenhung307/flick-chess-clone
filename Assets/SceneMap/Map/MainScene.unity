@@ -319,6 +319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraController
       objectReference: {fileID: 0}
+    - target: {fileID: 409442396682474985, guid: cb14bb8093531f44382ff6b117cd2241, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 409442396941718293, guid: cb14bb8093531f44382ff6b117cd2241, type: 3}
       propertyPath: cam
       value: 
@@ -326,6 +330,10 @@ PrefabInstance:
     - target: {fileID: 409442396941718293, guid: cb14bb8093531f44382ff6b117cd2241, type: 3}
       propertyPath: distanceToTarget
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 409442397252858814, guid: cb14bb8093531f44382ff6b117cd2241, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb14bb8093531f44382ff6b117cd2241, type: 3}
