@@ -8,6 +8,7 @@ TagManager:
   - Grid
   - Enemy
   - Ground
+  - End
   layers:
   - Default
   - TransparentFX
