@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
         GameManager.Instance.CheckWin();
         if (gameObject.name == "King(Clone)")
         {
+            GameManager.Instance.CheckWin();
             Debug.Log(" ---------- Game wwin ----------");
         }
     }

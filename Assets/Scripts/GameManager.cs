@@ -106,5 +106,6 @@ public class GameManager : MonoBehaviour
         }
       //Debug.Log(" So quan con song :" + _listPlayer.Count);
     }
+
 }
 
