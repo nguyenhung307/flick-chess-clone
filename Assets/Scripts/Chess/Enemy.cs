@@ -19,11 +19,12 @@ public class Enemy : MonoBehaviour
         }
     }
     public void Die()
-    {
+    { 
         Destroy(gameObject);
         GameManager.Instance.ChangeUp(GameManager.Instance.RaycastCheck.Check().transform.name == "King"); // Sửa
         GameManager.Instance.ListEnemy.Remove(gameObject);
-        if (gameObject.name == "King")
+        GameManager.Instance.CheckWin();
+        if (gameObject.name == "King(Clone)")
         {
             Debug.Log(" ---------- Game wwin ----------");
         }

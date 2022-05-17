@@ -22,7 +22,7 @@ public class RaycastCheck : MonoBehaviour
         RaycastHit hitInfo ;
             if (Physics.Raycast(ray,out hitInfo,100,mask))
             {
-                Debug.Log(hitInfo.transform.name);
+
                     hit = hitInfo; 
             }
         return hit;

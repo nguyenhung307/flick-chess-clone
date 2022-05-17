@@ -53,7 +53,6 @@ public class UnlockableSystem : MonoBehaviour
         }
         else
         {
-            
             _arenasInUsed.Add(arena);
             _tagArenasInUsed.Add(arena.tag);
         }
