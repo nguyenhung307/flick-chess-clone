@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
     #region  Private
     public static GameManager Instance;
     [SerializeField] private MouseInput _mouseInput;
@@ -12,17 +13,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _forceMultiplier;
     [SerializeField] private ParticleSystem _particleSystem;
     [SerializeField] private TurnRound _turnRound;
+    [SerializeField] private GameObject _crownWinGame;
+    [SerializeField] private GridPlace _girdPlace;
+    [SerializeField] private Material _material;
 
     private bool _gameIsWin;
     private GameObject _currentChose;
-    private int callNum;
+    
+    private bool _gameIsPlay;
     private List<GameObject> _listEnemy = new List<GameObject>();
-    private List<GameObject> _listChessPlayer = new List<GameObject>();
+    [SerializeField] private List<GameObject> _listChessPlayer = new List<GameObject>();
 
 
     #endregion
 
     #region  Public
+    public Material Material => _material;
+    public bool GameIsPlay => _gameIsPlay;
+    public GridPlace GridPlace => _girdPlace;
     public ParticleSystem ParticleSystem => _particleSystem;
     public MouseInput MouseInput => _mouseInput;
     public ListMesh ListMesh => _listMesh;
@@ -40,23 +48,15 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        callNum = 0;
+        _gameIsPlay = false;
     }
-    private void Start()
+    public void Shoot(Vector3 force, Rigidbody rb)
     {
-        _listEnemy.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
-        _listChessPlayer.AddRange(GameObject.FindGameObjectsWithTag("Player"));
-    }
-    private void Update()
-    {
-        CheckWin(_listEnemy, _listChessPlayer);
-    }
-    public void Shoot(Vector3 force, Rigidbody _rb)
-    {
-        if (_turnRound.IsPlayerTurn)
+        if (_turnRound.IsPlayerTurn && _gameIsPlay)
         {
-            _rb.AddForce(new Vector3(force.x, 0, force.y) * _forceMultiplier);
+            rb.AddForce(new Vector3(force.x, 0, force.y) * _forceMultiplier);
             // _turnRound.SetIsPlay(false); 
+            _currentChose = null;
             _turnRound.ChangeTeam(false);
         }
     }
@@ -83,19 +83,35 @@ public class GameManager : MonoBehaviour
             // _go.transform.SetSiblingIndex(0);
         }
     }
-    public void CheckWin(List<GameObject> listEnemy, List<GameObject> _listPlayer)
-    {
-         //Debug.Log(" So quan Enemy :" + _listPlayer.Count);
-        if (listEnemy.Count == 0)
+    public void SetGameIsPlay(){
+        _gameIsPlay = true;
+    }
+    public void CheckWin()
+    {     
+        if (_listEnemy.Count == 0)
         {
-            foreach (var item in _listPlayer)
+            foreach (var item in _listChessPlayer)
             {
+                Vector3 pos = item.transform.position;
+                pos.y =  item.transform.position.y + 1;
                 Instantiate(_particleSystem, item.transform.position, Quaternion.identity);
+                Instantiate(_crownWinGame, pos, Quaternion.identity);
+                
             }
-        
+
             Debug.Log(" ------ Win game ------- ");
         }
-
       //Debug.Log(" So quan con song :" + _listPlayer.Count);
     }
+}
+
+public enum Chess
+{
+    
+    Pawn = 0,
+    Knight = 1,
+    Bishop = 2,
+    Castle = 3,
+    Queen = 4,
+    King
 }

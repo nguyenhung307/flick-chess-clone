@@ -14,11 +14,12 @@ public class Grapping : MonoBehaviour
     private float mZCoord;
     private Vector3 _mOffSet;
     private Camera camera;
-    private Ray ray;
     private Vector3 _oldPosition;
     private Vector3 mousePressDownPos;
     private Vector3 mouseReleasePos;
-    // Start is called before the first frame update
+
+     private Vector3 _colliderPos;
+
     void Start()
     {
         camera = Camera.main;
@@ -26,31 +27,39 @@ public class Grapping : MonoBehaviour
         //grapInput.Mouse.Enable();
         //grapInput.Mouse.LeftClick.started += OnLeftClick;
         //grapInput.Mouse.LeftClick.canceled += OnLeftClickRelease;
+
+    }
+    void Update()
+    {
+        //MovingSelected();
+        //if(GameManager.Instance.GameIsPlay == false){
+            MovingSelectedOldInput();
+        //}
+
+        if ((gameObject.transform.position.y < 2f) && gameObject.CompareTag("Chess"))
+        {
+            PlayerDie();
+        }
     }
     private void OnMouseDown()
     {
-        
-           _oldPosition = gameObject.transform.position;
+        _oldPosition = gameObject.transform.position;
         mousePressDownPos = Input.mousePosition;
         if (_selecting == false)
         {
-            
             _selecting = true;
             _selected = gameObject.transform;
             mZCoord = camera.WorldToScreenPoint(_selected.transform.position).z;
             mZCoord -= 1;
             _releaseable = false;
-
-
         }
-        
     }
 
     private void MovingSelectedOldInput()
     {
         if (_selecting == true)
         {
-            
+            Debug.Log(_selecting);
             Vector2 pos = Input.mousePosition;
             Vector3 mousePositionForObject = new Vector3(pos.x, pos.y, mZCoord);
             _mOffSet = camera.ScreenToWorldPoint(mousePositionForObject);
@@ -63,16 +72,13 @@ public class Grapping : MonoBehaviour
         mouseReleasePos = Input.mousePosition;
         _selecting = false;
         gameObject.transform.position = _gridSelected.transform.position;
-        
     }
 
     private void OnMouseReleaseOldInput()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(_selected.transform.position,20);
+        Collider[] hitColliders = Physics.OverlapSphere(_selected.transform.position, 20);
         Transform temp = gameObject.transform;
         float distance = 99999;
-      
-
         for (int i = 0; i < hitColliders.Length; i++)
         {
             if (hitColliders[i].tag == "Grid" && hitColliders[i].GetComponent<Grid>()._occupied == false)
@@ -87,11 +93,33 @@ public class Grapping : MonoBehaviour
                 }
             }
         }
-        if(_releaseable)
+        if (_releaseable)
             _gridSelected = temp;
 
 
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (!other.gameObject.CompareTag("Ground") && !other.gameObject.CompareTag("Grid"))
+        {
+            ContactPoint contact = other.contacts[0];
+            _colliderPos = contact.point;
+            //Debug.Log(" Position on collider : " + _colliderPos);
+            Instantiate(GameManager.Instance.ParticleSystem, _colliderPos, Quaternion.identity);
+        }
+    }
+
+    private void PlayerDie()
+    {
+        Destroy(gameObject);
+        GameManager.Instance.ListPlayer.Remove(gameObject);
+        if (gameObject.name == "King")
+        {
+            Debug.Log(" ---------- Game Lose ----------");
+        }
+    }
+
 
     /*
 private void OnLeftClickRelease(InputAction.CallbackContext context)
@@ -154,10 +182,6 @@ private void MovingSelected()
 }
 */
     // Update is called once per frame
-    void Update()
-    {
-        //MovingSelected();
-        MovingSelectedOldInput();
-    }
+
 
 }

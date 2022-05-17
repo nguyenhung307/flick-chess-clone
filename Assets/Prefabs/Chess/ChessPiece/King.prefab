@@ -455,6 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ddc043e6f513743920c3cfd2d61957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chess: 5
 --- !u!114 &-5913270258519288575
 MonoBehaviour:
   m_ObjectHideFlags: 0
