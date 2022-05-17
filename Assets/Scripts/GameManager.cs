@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _crownWinGame;
     [SerializeField] private GridPlace _girdPlace;
     [SerializeField] private Material _material;
+    [SerializeField] private CamMovement _cam;
 
     private bool _gameIsWin;
     private GameObject _currentChose;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     #region  Public
     public Material Material => _material;
+    public CamMovement Cam => _cam;
     public bool GameIsPlay => _gameIsPlay;
     public GridPlace GridPlace => _girdPlace;
     public ParticleSystem ParticleSystem => _particleSystem;
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour
             _go.SetActive(true);
             // _go.transform.SetSiblingIndex(0);
         }
+        _currentChose = null;
     }
     public void SetGameIsPlay(){
         _gameIsPlay = true;
@@ -105,13 +108,3 @@ public class GameManager : MonoBehaviour
     }
 }
 
-public enum Chess
-{
-    
-    Pawn = 0,
-    Knight = 1,
-    Bishop = 2,
-    Castle = 3,
-    Queen = 4,
-    King
-}

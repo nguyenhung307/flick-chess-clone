@@ -14,7 +14,7 @@ public class CamMovement : MonoBehaviour
 
     void Update()
     {
-        Controller();
+        CameraMove();
     }
     public void Controller()
     {
@@ -26,11 +26,12 @@ public class CamMovement : MonoBehaviour
     }
     public void CameraMove()
     {
-        if (Input.GetMouseButtonDown(0))
+        
+        if (Input.GetMouseButtonDown(0) )
         {
             previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
-        else if (Input.GetMouseButton(0))
+        else if (Input.GetMouseButton(0) )
         {
             Vector3 newPosition = cam.ScreenToViewportPoint(Input.mousePosition);
             Vector3 direction = previousPosition - newPosition;
@@ -40,9 +41,9 @@ public class CamMovement : MonoBehaviour
 
             cam.transform.position = target.position;
 
+        
             // cam.transform.Rotate(new Vector3(1, 0, 0), rotationAroundXAxis);
             cam.transform.Rotate(new Vector3(0, 1, 0), rotationAroundYAxis, Space.World);
-
             cam.transform.Translate(new Vector3(0, 0, -distanceToTarget));
 
             previousPosition = newPosition;

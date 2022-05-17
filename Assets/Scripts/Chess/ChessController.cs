@@ -20,8 +20,6 @@ public class ChessController : MonoBehaviour
 
     void Start()
     {
-
-        
         //grapInput = new GrapInput();
         //grapInput.Mouse.Enable();
         //grapInput.Mouse.LeftClick.started += OnLeftClick;
@@ -41,7 +39,6 @@ public class ChessController : MonoBehaviour
         {
             PlayerDie();
         }
-
     }
     private void OnMouseDown()
     {
@@ -70,11 +67,14 @@ public class ChessController : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        if(!GameManager.Instance.GameIsPlay)
+        {
         OnMouseReleaseOldInput();
         mouseReleasePos = Input.mousePosition;
         _selecting = false;
         
         gameObject.transform.position = _gridSelected.transform.position;
+        }
     }
 
     private void OnMouseReleaseOldInput()
@@ -105,7 +105,7 @@ public class ChessController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (!other.gameObject.CompareTag("Ground") && !other.gameObject.CompareTag("Grid"))
+        if (!other.gameObject.CompareTag("Ground") && !other.gameObject.CompareTag("Grid") && !other.gameObject.CompareTag("Chess"))
         {
             ContactPoint contact = other.contacts[0];
             _colliderPos = contact.point;
